@@ -1,13 +1,13 @@
 import { Course } from '../types/course';
 
-export const courses: Course[] = [
+export const COURSES: Course[] = [
   {
     id: 1,
     title: 'Angular Fundamentals',
     description: 'Learn the basics of Angular',
     duration: '4 hours',
     level: 'beginner',
-    image: 'angular-fundamentals.jpg',
+    image: 'assets/angular-fundamentals.webp',
     courseStats: {
       difficulty: 3,
       actualization: 5,
@@ -20,7 +20,7 @@ export const courses: Course[] = [
     description: 'Dive deep into Angular',
     duration: '6 hours',
     level: 'advanced',
-    image: 'advanced-angular.jpg',
+    image: 'assets/advanced-angular.webp',
     courseStats: {
       difficulty: 5,
       actualization: 5,
@@ -33,7 +33,7 @@ export const courses: Course[] = [
     description: 'Optimize your Angular applications',
     duration: '5 hours',
     level: 'intermediate',
-    image: 'angular-performance.jpg',
+    image: 'assets/angular-performance.webp',
     courseStats: {
       difficulty: 4,
       actualization: 5,
