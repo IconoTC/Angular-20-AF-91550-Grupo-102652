@@ -20,7 +20,7 @@ export const COURSES: Course[] = [
     description: 'Dive deep into Angular',
     duration: '6 hours',
     level: 'advanced',
-    image: 'assets/advanced-angular.webp',
+    image: 'assets/angular-advanced.webp',
     courseStats: {
       difficulty: 5,
       actualization: 5,
