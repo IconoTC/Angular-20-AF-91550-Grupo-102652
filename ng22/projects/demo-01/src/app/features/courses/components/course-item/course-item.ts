@@ -33,7 +33,7 @@ import { Course } from '../../types/course';
     <h3>{{ course().title }}</h3>
     <p>{{ course().description }}</p>
     <img [src]="course().image" [alt]="course().title" />
-    <p>{{ plainText }}</p>
+    <p class="plain-text">{{ plainText }}</p>
   `,
   encapsulation: ViewEncapsulation.Emulated,
 })
