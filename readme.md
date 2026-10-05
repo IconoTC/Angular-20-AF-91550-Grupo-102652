@@ -104,7 +104,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 ### Día 1 (L-5): Introducción Angular. CLI. Componentes. Testing. 
 
-<!-- - Presentación del curso, del instructor y de los alumnos.
+- Presentación del curso, del instructor y de los alumnos.
 
 - Introducción a Angular y su ecosistema.
 
@@ -118,11 +118,14 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Creación de un nuevo proyecto (app) Angular. `ng generate app`
   - Añadiendo ESLint (`ng add`) y Prettier.
   - Estructura de un workspace/proyecto Angular.
-  - Creación de un workspace+proyecto desde Vitest. `npm create vitest@latest` -->
 
-[descanso]: 11:20 - 11:45
+<!-- 
+  - Creación de un workspace+proyecto desde Vitest. `npm create vitest@latest` 
+-->
 
-<!-- - Angular CLI: Comandos básicos (1).
+[descanso]: 11:40 - 12:10
+
+- Angular CLI: Comandos básicos (1).
   - Servidor de desarrollo: `ng serve`.
   - Construcción del proyecto: `ng build`.
 
@@ -131,14 +134,14 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Testing con Playwright: `ng e2e`
   - Despliegue: `ng deploy`. Opciones
 
-
 - Generación de componentes: `ng generate`.
   - Elementos de un componente: HTML, CSS, TypeScript. 
   - Template y estilos inline o en ficheros.
   - Guía de estilos actualizada
   - Scaffolding 
-  - Estilos globales: variables, reset... -->
- 
+  - Estilos globales: variables, reset... 
+
+
 <!-- NO INCLUIDO
 - Elementos básicos de TypeScript.
   - Tipos de datos. Inferencia y anotación de tipos.
