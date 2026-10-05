@@ -157,18 +157,17 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - Módulos por defecto y nombrados. 
 -->
 
-<!-- - Generación de componentes: `ng generate component <nombre>`.
+- Generación de componentes: `ng generate component <nombre>`.
+  - Tipos y datos
+
+[comida]: 14:00 - 15:00
+
   - Estilos: Encapsulación de estilos. ViewEncapsulation.
   - Componente 🧿CourseItem
     - Programación declarativa en el template: 
       - Del componente a la vista: interpolación {{}}, binding de propiedades []
       - De la vista al componente: binding de eventos () -> ya lo veremos
-    - Signals en el estado del componente y en la plantilla. -->
-
-[comida]: 14:00 - 15:00
-
-
-  <!-- - Componente 🧿CourseItemSignals
+    - Signals en el estado del componente y en la plantilla.
     - Signals y asincronía. Zoneless + Estrategia OnPush  -->
 
   <!-- NO INCLUIDO
@@ -177,24 +176,23 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
         - Detección del cambio: Estrategia OnPush
    -->
 
-<!-- - Testing de componentes. Pruebas unitarias
+- Testing de componentes. Pruebas unitarias
   - Test con Vitest. Conceptos básicos y ejemplo
   - Elementos de los test en Angular: TestBed, fixture, detectChanges()
   - Test de implementación v. test de comportamiento.
   - Tests para componentes básicos.
     - Renderizado del componente (e.g. heading).
-    - Procesos asíncronos. Timers 
     - Coverage. Instalación v-8 : `npm i -D @vitest/coverage-v8@4.1.11`
--->
+    - Procesos asíncronos. Timers (comentado) 
+
+### Día 2 (M-6): Componentes del Layout. 
 
 <!-- - Componente 🧿CourseItemPro
   - Eventos
   - Computed signals -->
 
-
-### Día 2 (M-6): Componentes del Layout. 
-
 <!-- - Testing de componentes. Pruebas unitarias
+
     - Interacción con el componente (e.g. click en un botón).
 
 - Scaffolding. Core

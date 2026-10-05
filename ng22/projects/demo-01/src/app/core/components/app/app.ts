@@ -5,13 +5,16 @@ import { CourseItem } from '../../../features/courses/components/course-item/cou
 @Component({
   imports: [RouterOutlet, CourseItem],
   selector: 'ind-root',
-  styles: [],
+  styles: `
+  `,
   template: `
     <h1>Hello, {{ title() }}</h1>
+    <p>Welcome to {{ title() }}!</p>
     <router-outlet />
     <ind-course-item />
   `,
+
 })
 export class App {
-  protected readonly title = signal('demo-01');
+  private readonly title = signal('Demo 01');
 }
