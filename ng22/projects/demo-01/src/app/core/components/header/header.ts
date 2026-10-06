@@ -3,7 +3,7 @@ import { LogoCoders } from '../logo-coders/logo-coders';
 import { User } from '../user/user';
 
 @Component({
-  imports: [LogoCoders, User],
+  imports: [User],
   selector: 'ind-header',
   styles: `
     :host {
@@ -79,7 +79,8 @@ import { User } from '../user/user';
   template: `
     <header class="container">
       <div class="left-side">
-        <ind-logo-coders />
+       <!-- <ng-content select="ind-logo-coders" /> -->
+         <ng-content select="[slot=logo]" />
       </div>
       <hgroup>
         Logo de Angular
@@ -94,7 +95,9 @@ import { User } from '../user/user';
       <div class="bottom-row">
         <p class="first-line">{{ subtitle() }}</p>
         <div class="second-line">
-          <div>Slot: Menu</div>
+          <div>
+            <ng-content select="[slot=menu]" />
+          </div>
           <div>Search</div>
         </div>
       </div>

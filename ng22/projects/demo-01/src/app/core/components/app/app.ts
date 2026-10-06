@@ -5,9 +5,20 @@ import { CourseItemSignals } from '../../../features/courses/components/course-i
 import { CourseItemPro } from '../../../features/courses/components/course-item-pro/course-item-pro';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
+import { LogoCoders } from '../logo-coders/logo-coders';
+import { Card } from '../../design/card/card';
 
 @Component({
-  imports: [RouterOutlet, CourseItem, CourseItemSignals, CourseItemPro, Header, Footer],
+  imports: [
+    RouterOutlet,
+    CourseItem,
+    CourseItemSignals,
+    CourseItemPro,
+    LogoCoders,
+    Header,
+    Footer,
+    Card,
+  ],
   selector: 'ind-root',
   styles: `
     :host {
@@ -31,11 +42,16 @@ import { Footer } from '../footer/footer';
     }
   `,
   template: `
-    <ind-header />
+    <ind-header>
+      <ind-logo-coders slot="logo" />
+      <p slot="menu">Aquí ira el menu</p>
+    </ind-header>
 
     <main class="container">
       <router-outlet />
-      <ind-course-item-pro />
+      <ind-card>
+        <ind-course-item-pro />
+      </ind-card>
       <details>
         <summary>Otros Course Items</summary>
         <ind-course-item />
