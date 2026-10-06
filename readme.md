@@ -162,13 +162,13 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 [comida]: 14:00 - 15:00
 
-  - Estilos: Encapsulación de estilos. ViewEncapsulation.
   - Componente 🧿CourseItem
+    - Estilos: Encapsulación de estilos. ViewEncapsulation.
     - Programación declarativa en el template: 
       - Del componente a la vista: interpolación {{}}, binding de propiedades []
       - De la vista al componente: binding de eventos () -> ya lo veremos
     - Signals en el estado del componente y en la plantilla.
-    - Signals y asincronía. Zoneless + Estrategia OnPush  -->
+    - Signals y asincronía. Zoneless + Estrategia OnPush
 
   <!-- NO INCLUIDO
       - Estado en los componentes con ZoneJS v. Zoneless
@@ -182,29 +182,29 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Test de implementación v. test de comportamiento.
   - Tests para componentes básicos.
     - Renderizado del componente (e.g. heading).
-    - Coverage. Instalación v-8 : `npm i -D @vitest/coverage-v8@4.1.11`
+    - Coverage. Instalación v-8 : `npm i -D @vitest/coverage-v8`
     - Procesos asíncronos. Timers (comentado) 
 
 ### Día 2 (M-6): Componentes del Layout. 
 
-<!-- - Componente 🧿CourseItemPro
+- Componente 🧿CourseItemPro
   - Eventos
-  - Computed signals -->
+  - Computed signals
 
-<!-- - Testing de componentes. Pruebas unitarias
-
+- Testing de componentes. Pruebas unitarias
     - Interacción con el componente (e.g. click en un botón).
 
 - Scaffolding. Core
   - Componente 🧿Header. Estructura básica en CSS: Grid
   - Componente 🧿Footer
    - Test de Header y Footer
-  - Componente 🧿LogoCoders. Fichero svg como template -->
 
-[descanso]: 11:30 - 12:00
+[descanso]: 11:15 - 1145
 
+<!-- 
 
-<!-- - Componente 🧿User. Svg como parte del template
+- Componente 🧿LogoCoders. Fichero svg como template
+- Componente 🧿User. Svg como parte del template
     - Test de LogoCoders. Spies & mocks
   - Componente 🧿Card. Proyección de contenido
     - Uso en el componente 🧿App como contenedor principal.
