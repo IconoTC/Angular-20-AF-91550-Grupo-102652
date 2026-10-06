@@ -7,6 +7,7 @@ import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { LogoCoders } from '../logo-coders/logo-coders';
 import { Card } from '../../design/card/card';
+import { Menu } from '../../design/menu/menu';
 
 @Component({
   imports: [
@@ -17,6 +18,7 @@ import { Card } from '../../design/card/card';
     LogoCoders,
     Header,
     Footer,
+    Menu,
     Card,
   ],
   selector: 'ind-root',
@@ -44,7 +46,7 @@ import { Card } from '../../design/card/card';
   template: `
     <ind-header>
       <ind-logo-coders slot="logo" />
-      <p slot="menu">Aquí ira el menu</p>
+      <ind-menu slot="menu" />
     </ind-header>
 
     <main class="container">
