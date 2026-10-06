@@ -201,7 +201,6 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 [descanso]: 11:15 - 1145
 
-<!-- 
 
 - Componente 🧿LogoCoders. Fichero svg como template
 - Componente 🧿User. Svg como parte del template
@@ -213,16 +212,23 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 - Componentes de navegación  
   - 🧿Menu. Tipo y datos. Iteración con @for
   - Incorporación en App
+  - Test de Menu. Renderizado y @for 
   - 🧿Socials. @for + @switch: iconos svg de las redes sociales
-  - Test de Menu y Socials. Renderizado y @for @switch
+<!-- 
+  - Test de Socials. Renderizado y @for @switch
+-->
 
 - Componentes CSS
+  - 🧿Separador. Componente de CSS 
   - 🧿toggle: Widget css como componente Angular
-  - 🧿Separador. Componente de CSS -->
+
 
 [comida]: 14:00 - 15:00
 
-<!-- - Componente 🧿Search. Input de usuario: 2 way data binding. [(ngModel)]
+- Componentes CSS (continuación)
+  - 🧿toggle: Widget css como componente Angular
+
+- Componente 🧿Search. Input de usuario: 2 way data binding. [(ngModel)]
 - Referencias locales. #ref
   - Signal queries: viewChild, focus()
   - Ciclo de vida de los componentes 
@@ -232,15 +238,14 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 - Test de Search. Renderizado y data binding
 
 - Nuevo proyecto (app): demo-02.  `ng g app demo-02 --style css --ssr false -p ind -t -s`  
+  - Eliminamos componentes innecesarios
+    - SearchRe
+    - CourseItemSignals -
+
 
 - Scaffolding. Features
   - Componentes (pages): 🧿Home, 🧿Dashboard, 🧿Courses, 🧿About (Angular).
   - Test de las páginas
-
-- Eliminamos componentes innecesarios
-  - SearchRef
-  - Sample
-  - CourseItemSignals -->
 
 <!-- 
    - Ejercicio de componentization
