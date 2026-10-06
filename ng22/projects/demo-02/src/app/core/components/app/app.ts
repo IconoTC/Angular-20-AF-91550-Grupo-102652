@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CourseItem } from '../../../features/courses/components/course-item/course-item';
-import { CourseItemPro } from '../../../features/courses/components/course-item-pro/course-item-pro';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { LogoCoders } from '../logo-coders/logo-coders';
 import { Card } from '../../design/card/card';
 import { Menu } from '../../design/menu/menu';
+import HomePage from '../../../features/home/home-page';
+import AboutPage from '../../../features/about/about-page';
+import CoursesPage from '../../../features/courses/courses-page';
+import DashboardPage from '../../../features/dashboard/dashboard-page';
 
 @Component({
   imports: [
-    RouterOutlet,
-    CourseItem,
-    CourseItemPro,
-    LogoCoders,
-    Header,
-    Footer,
-    Menu,
+    RouterOutlet, 
+    LogoCoders, 
+    Header, 
+    Footer, 
+    Menu, 
     Card,
-  ],
+    HomePage,
+    DashboardPage,
+    CoursesPage,
+    AboutPage
+  ], 
   selector: 'ind-root',
   styles: `
     :host {
@@ -49,13 +53,21 @@ import { Menu } from '../../design/menu/menu';
 
     <main class="container">
       <router-outlet />
-      <ind-card>
-        <ind-course-item />
+      <ind-card id="home">
+        <ind-home-page />
       </ind-card>
-      <details>
-        <summary>Course Detaisl</summary>
-        <ind-course-item-pro />
-      </details>
+
+      <ind-card id="dashboard">
+        <ind-dashboard-page />
+      </ind-card>
+
+      <ind-card id="courses"> 
+        <ind-courses-page />
+      </ind-card>
+
+      <ind-card id="about"> 
+        <ind-about-page />
+      </ind-card>
     </main>
 
     <ind-footer />
