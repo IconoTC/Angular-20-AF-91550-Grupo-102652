@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { LogoCoders } from '../logo-coders/logo-coders';
 import { User } from '../user/user';
+import { Separator } from '../separator/separator';
+import { Toggle } from '../toggle/toggle';
 
 @Component({
-  imports: [User],
+  imports: [User, Separator, Toggle],
   selector: 'ind-header',
   styles: `
     :host {
@@ -90,7 +91,9 @@ import { User } from '../user/user';
         <div class="user-icons">
           <ind-user />
         </div>
-        <div class="system-icons">System Icons (Toggle)</div>
+        <div class="system-icons">
+          <ind-toggle />
+        </div>
       </div>
       <div class="bottom-row">
         <p class="first-line">{{ subtitle() }}</p>
@@ -98,11 +101,11 @@ import { User } from '../user/user';
           <div>
             <ng-content select="[slot=menu]" />
           </div>
-          <div>Search</div>
+          <div><</div>
         </div>
       </div>
     </header>
-    <div>------Separador</div>
+    <ind-separator />
   `,
 })
 export class Header {
