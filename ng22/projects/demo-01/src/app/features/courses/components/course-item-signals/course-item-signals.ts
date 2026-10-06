@@ -4,8 +4,8 @@ import { Course } from '../../types/course';
 
 @Component({
   imports: [],
-  selector: 'ind-course-item',
-  styles: `
+  selector: 'ind-course-item-signals',
+styles: `
     :host {
       display: flex;
       flex-direction: column;
@@ -33,9 +33,37 @@ import { Course } from '../../types/course';
     <h3>{{ course().title }}</h3>
     <p>{{ course().description }}</p>
     <img [src]="course().image" [alt]="course().title" />
+    <p class="plain-text">{{ plainText }}</p>
   `,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class CourseItem {
+export class CourseItemSignals {
   protected readonly course = signal<Course>(COURSES[0]);
+
+
+  // Incorrecto por no usar signals
+  protected plainText = 'Esto es un texto plano';
+
+  constructor() {
+    //console.log(this.course());
+    //this.course.set(COURSES[1]);
+    this.course.update((course) => ({ ...course, title: 'Updated Course Title' }));
+    console.log(this.plainText);
+
+    setTimeout(
+      () => {
+        this.plainText = 'Esto es un texto plano modificado';
+        console.log(this.plainText);
+      },
+      2000,
+    );
+
+    setTimeout(
+      () => {
+        this.course.set(COURSES[1]);
+        console.log(this.course());
+      },
+      4000,
+    );
+  }
 }
