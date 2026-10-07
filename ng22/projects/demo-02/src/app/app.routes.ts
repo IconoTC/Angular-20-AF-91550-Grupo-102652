@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
-import { TimeService } from './core/service/time.service';
+import { TimeService } from './core/services/time.service';
 
 export const routes: Routes = [
   {
@@ -25,9 +25,7 @@ export const routes: Routes = [
     data: {
       label: 'Dashboard',
     },
-    providers: [
-      TimeService
-    ]
+    providers: [TimeService],
   },
   {
     path: 'courses',
@@ -50,11 +48,10 @@ export const routes: Routes = [
   {
     path: '**',
     redirectTo: 'home',
-  }
+  },
 ];
 
-
-export const MENU_OPTIONS: MenuOption[]  = routes
+export const MENU_OPTIONS: MenuOption[] = routes
   .filter((route) => route.data && route.data['label'])
   .map((route) => ({
     label: route.data!['label'] as string,

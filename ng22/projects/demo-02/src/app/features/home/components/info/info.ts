@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { Timestamp } from '../../../../core/design/timestamp/timestamp';
-import { TimeService } from '../../../../core/service/time.service';
+import { TimeService } from '../../../../core/services/time.service';
 
 @Component({
   imports: [Timestamp],
@@ -26,7 +26,6 @@ import { TimeService } from '../../../../core/service/time.service';
     //     getTime: () => 7777777777777
     //   }
     // }
-
   ],
   selector: 'ind-info',
   styles: `
@@ -67,7 +66,6 @@ import { TimeService } from '../../../../core/service/time.service';
       </ul>
     </footer>
     <ind-timestamp />
-    
   `,
 })
 export class Info {

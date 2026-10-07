@@ -1,16 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Timestamp } from './timestamp';
-import { TimeService } from '../../service/time.service';
-
+import { TimeService } from '../../services/time.service';
 
 const TimeServiceMock = {
-  getTime: vi.fn(() => 7777777777777)
-}
+  getTime: vi.fn(() => 7777777777777),
+};
 
 describe('Timestamp', () => {
   let component: Timestamp;
   let fixture: ComponentFixture<Timestamp>;
-  let service: TimeService
+  let service: TimeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -18,14 +17,14 @@ describe('Timestamp', () => {
       providers: [
         {
           provide: TimeService,
-          useValue: TimeServiceMock
-        }
-      ]
+          useValue: TimeServiceMock,
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Timestamp);
     component = fixture.componentInstance;
-    service = TestBed.inject(TimeService)
+    service = TestBed.inject(TimeService);
     await fixture.whenStable();
   });
 
