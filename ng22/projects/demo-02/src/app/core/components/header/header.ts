@@ -1,11 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { User } from '../user/user';
 import { Separator } from '../separator/separator';
 import { Toggle } from '../toggle/toggle';
 import { Search } from '../search/search';
 
 @Component({
-  imports: [User, Separator, Toggle, Search ],
+  imports: [User, Separator, Toggle, Search],
   selector: 'ind-header',
   styles: `
     :host {
@@ -81,8 +81,8 @@ import { Search } from '../search/search';
   template: `
     <header class="container">
       <div class="left-side">
-       <!-- <ng-content select="ind-logo-coders" /> -->
-         <ng-content select="[slot=logo]" />
+        <!-- <ng-content select="ind-logo-coders" /> -->
+        <ng-content select="[slot=logo]" />
       </div>
       <hgroup>
         <h1>{{ title() }}</h1>
@@ -111,6 +111,8 @@ import { Search } from '../search/search';
   `,
 })
 export class Header {
-  private readonly title = signal('Curso de Angular 22');
-  private readonly subtitle = signal('Demo 02: aplicaciones con Angular');
+  public readonly title = input('Curso', {
+    alias: 'app-title',
+  });
+  public readonly subtitle = input.required<string>();
 }

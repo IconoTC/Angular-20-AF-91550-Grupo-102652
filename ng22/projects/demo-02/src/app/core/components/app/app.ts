@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
@@ -9,20 +9,21 @@ import HomePage from '../../../features/home/home-page';
 import AboutPage from '../../../features/about/about-page';
 import CoursesPage from '../../../features/courses/courses-page';
 import DashboardPage from '../../../features/dashboard/dashboard-page';
+import { MENU_OPTIONS } from '../../../app.routes';
 
 @Component({
   imports: [
-    RouterOutlet, 
-    LogoCoders, 
-    Header, 
-    Footer, 
-    Menu, 
+    RouterOutlet,
+    LogoCoders,
+    Header,
+    Footer,
+    Menu,
     Card,
     HomePage,
     DashboardPage,
     CoursesPage,
-    AboutPage
-  ], 
+    AboutPage,
+  ],
   selector: 'ind-root',
   styles: `
     :host {
@@ -46,9 +47,9 @@ import DashboardPage from '../../../features/dashboard/dashboard-page';
     }
   `,
   template: `
-    <ind-header>
-      <ind-logo-coders slot="logo" />
-      <ind-menu slot="menu" />
+    <ind-header [app-title]="title()" [subtitle]="subtitle()">
+      <ind-logo-coders slot="logo" title="LogoCoders" />
+      <ind-menu slot="menu" [options]="menuOptions()" />
     </ind-header>
 
     <main class="container">
@@ -61,11 +62,11 @@ import DashboardPage from '../../../features/dashboard/dashboard-page';
         <ind-dashboard-page />
       </ind-card>
 
-      <ind-card id="courses"> 
+      <ind-card id="courses">
         <ind-courses-page />
       </ind-card>
 
-      <ind-card id="about"> 
+      <ind-card id="about">
         <ind-about-page />
       </ind-card>
     </main>
@@ -74,5 +75,8 @@ import DashboardPage from '../../../features/dashboard/dashboard-page';
   `,
 })
 export class App {
-  // private readonly title = signal('Demo 01');
+  private readonly title = signal('Curso de Angular 22');
+  private readonly subtitle = signal('Demo 02: aplicaciones con Angular');
+
+  private readonly menuOptions = signal(MENU_OPTIONS);
 }

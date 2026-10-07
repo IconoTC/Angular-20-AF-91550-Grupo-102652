@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Header } from './header';
 
+
+const TITLE = 'Curso';
+const SUBTITLE = 'Subtítulo';
+
 describe('Header', () => {
   let component: Header;
   let fixture: ComponentFixture<Header>;
@@ -12,6 +16,9 @@ describe('Header', () => {
 
     fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;
+
+    fixture.componentRef.setInput('app-title', TITLE);
+    fixture.componentRef.setInput('subtitle', SUBTITLE);
     await fixture.whenStable();
   });
 
@@ -23,7 +30,7 @@ describe('Header', () => {
   // Test de implementación
   // Test de caja blanca
   it('should have as title "Demo 01"', () => {
-    expect(component['title']()).toContain('Angular');
+    expect(component['title']()).toContain(TITLE);
   });
 
 
@@ -32,6 +39,12 @@ describe('Header', () => {
   it('should render title', async () => {
     const element = fixture.nativeElement as HTMLElement;
     const h1Element = element.querySelector('h1') as HTMLHeadingElement;
-    expect(h1Element.textContent).toContain('Angular');
+    expect(h1Element.textContent).toContain(TITLE);
+  });
+
+  it('should render subtitle', async () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const pElement = element.querySelector('.first-line') as HTMLParagraphElement;
+    expect(pElement.textContent).toContain(SUBTITLE);
   });
 });

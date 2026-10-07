@@ -1,10 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Menu } from './menu';
 import { By } from '@angular/platform-browser';
+import { MenuOption } from '../../types/menu-option';
 
 describe('Menu', () => {
   let component: Menu;
   let fixture: ComponentFixture<Menu>;
+
+  const MENU_OPTIONS: MenuOption[] = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,6 +19,7 @@ describe('Menu', () => {
 
     fixture = TestBed.createComponent(Menu);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('options', MENU_OPTIONS);
     await fixture.whenStable();
   });
 
