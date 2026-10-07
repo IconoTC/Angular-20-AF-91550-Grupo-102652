@@ -2,9 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { Timestamp } from '../../../../core/design/timestamp/timestamp';
 import { TimeService } from '../../../../core/services/time.service';
 import { ERROR_LEVEL, Logger } from '../../../../core/services/logger';
+import { DatePipe } from '@angular/common';
 
 @Component({
-  imports: [Timestamp],
+  imports: [Timestamp, DatePipe],
   providers: [
     TimeService,
     // {
@@ -68,17 +69,17 @@ import { ERROR_LEVEL, Logger } from '../../../../core/services/logger';
     <footer>
       <ul>
         <li>Autor: {{ author() }}</li>
-        <li>Fecha: {{ currentDate() }}</li>
+        <li>Fecha: {{ currentDate() | date: 'fullDate': '' : 'es' }}</li>
         <li>Logger level: {{ logger.level }}</li>
       </ul>
     </footer>
     <ind-timestamp />
-
+ 
   `,
 })
 export class Info {
   private readonly author = signal('Alejandro Cerezo');
-  private readonly currentDate = signal(new Date().toLocaleDateString());
+  private readonly currentDate = signal(new Date());
   private readonly technologies = signal(['Angular 22', 'TypeScript 6.0', 'ES2026']);
 
   private readonly logger = inject(Logger);
