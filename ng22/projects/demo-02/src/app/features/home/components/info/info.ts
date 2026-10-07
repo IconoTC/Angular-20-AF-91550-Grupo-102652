@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Timestamp } from '../../../../core/design/timestamp/timestamp';
 import { TimeService } from '../../../../core/services/time.service';
+import { ERROR_LEVEL, Logger } from '../../../../core/services/logger';
 
 @Component({
   imports: [Timestamp],
@@ -25,7 +26,12 @@ import { TimeService } from '../../../../core/services/time.service';
     //   useValue: {
     //     getTime: () => 7777777777777
     //   }
-    // }
+    // },
+    {
+      provide: ERROR_LEVEL,
+      useValue: 4,
+    },
+    Logger,
   ],
   selector: 'ind-info',
   styles: `
@@ -63,13 +69,22 @@ import { TimeService } from '../../../../core/services/time.service';
       <ul>
         <li>Autor: {{ author() }}</li>
         <li>Fecha: {{ currentDate() }}</li>
+        <li>Logger level: {{ logger.level }}</li>
       </ul>
     </footer>
     <ind-timestamp />
+
   `,
 })
 export class Info {
   private readonly author = signal('Alejandro Cerezo');
   private readonly currentDate = signal(new Date().toLocaleDateString());
   private readonly technologies = signal(['Angular 22', 'TypeScript 6.0', 'ES2026']);
+
+  private readonly logger = inject(Logger);
+
+  constructor() {
+    this.logger.log('[LOG] Info component initialized');
+    this.logger.info('[INFO] Info component initialized');
+  }
 }
