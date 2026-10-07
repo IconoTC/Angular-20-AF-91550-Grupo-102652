@@ -1,21 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { Counter } from '../counter/counter';
+import { Component, computed, signal } from '@angular/core';
 import { Card } from '../../../../core/design/card/card';
 import { COUNTERS } from '../../data/counters';
-
-
+import { CounterItem } from '../counter-item/counter-item';
+import { CounterState } from '../../types/counter-state';
 
 @Component({
-  imports: [Counter, Card],
+  imports: [CounterItem, Card],
   selector: 'ind-counter-list',
-  styles: ``,
+  styles: `
+      .negative {
+      color: red;
+    }`,
   template: `
-    <p>Valor total: <output>{{ totalValue() }}</output></p>
+    <p>Valor total: <output [class.negative]="totalValue() < 0">{{ totalValue() }}</output></p>
     <p>Total de clicks: <output>{{ totalClicks() }}</output></p>
 
     @for (counter of counters(); track counter.id) {
       <ind-card>
-        <ind-counter (eventChange)="handleChange($event)" />
+        <ind-counter-item
+          [initialState]="counter"
+        (eventChange)="handleChange($event)" />
       </ind-card>
     }
 
@@ -23,17 +27,28 @@ import { COUNTERS } from '../../data/counters';
 })
 export class CounterList {
 
-  private readonly totalValue = signal(0);
-  private readonly totalClicks = signal(0);
+  private readonly totalValue = computed(() => {
+    return this.counters().reduce((acc, counter) => acc + counter.count, 0);
+  });
+  private readonly totalClicks = computed(() => {
+    return this.counters().reduce((acc, counter) => acc + counter.clicks, 0);
+  });
 
 
   private readonly counters = signal(COUNTERS)
 
+  
 
-  handleChange(value: number): void {
-    console.log("Event value", value)
-    this.totalValue.update((current) => current + value);
-    this.totalClicks.update((current) => current + 1);
+  handleChange(state: CounterState): void {
+    console.log("Event value", state)
+    this.counters.update((current) => {
+      return current.map((counter) => {
+        if (counter.id === state.id) {
+          return state;
+        }
+        return counter;
+      });
+    });
   }
 
 }
