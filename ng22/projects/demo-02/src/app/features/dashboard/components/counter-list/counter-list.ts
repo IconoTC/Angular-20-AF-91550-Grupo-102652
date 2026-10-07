@@ -3,9 +3,10 @@ import { Card } from '../../../../core/design/card/card';
 import { COUNTERS } from '../../data/counters';
 import { CounterItem } from '../counter-item/counter-item';
 import { CounterState } from '../../types/counter-state';
+import { Timestamp } from '../../../../core/design/timestamp/timestamp';
 
 @Component({
-  imports: [CounterItem, Card],
+  imports: [CounterItem, Card, Timestamp],
   selector: 'ind-counter-list',
   styles: `
       .negative {
@@ -22,6 +23,8 @@ import { CounterState } from '../../types/counter-state';
         (eventChange)="handleChange($event)" />
       </ind-card>
     }
+
+    <ind-timestamp />
 
   `,
 })

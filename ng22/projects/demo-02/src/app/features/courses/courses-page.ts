@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { CourseItemPro } from './components/course-item-pro/course-item-pro';
 import { CourseItem } from './components/course-item/course-item';
+import { Timestamp } from '../../core/design/timestamp/timestamp';
 
 @Component({
-  imports: [CourseItem, CourseItemPro],
+  imports: [CourseItem, CourseItemPro, Timestamp],
   selector: 'ind-courses-page',
   styleUrls: ['../pages.css'],
   styles: ``,
@@ -14,6 +15,7 @@ import { CourseItem } from './components/course-item/course-item';
       <summary>Course Detaisl</summary>
       <ind-course-item-pro />
     </details>
+    <ind-timestamp />
   `,
 })
 export default class CoursesPage {
