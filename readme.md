@@ -290,18 +290,20 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 -->
 
-<!-- - Rutas básicas. `app.routes.ts`
+- Rutas básicas. `app.routes.ts`
   - Array de rutas.
   - RouterOutlet en AppComponent.
   - Navegación. Componente menu. @for
-  - SPA: RouterLink y RouterLinkActive -->
+  - SPA: RouterLink y RouterLinkActive 
+  - Array de opciones de menu
+  - Rutas Lazy. Default import en las páginas 
+
+<!-- 
+- Test las paginas (componentes) con rutas. RouterTestingHarness
+-->
 
 [comida]: 14:00 - 15:00
 
-<!-- - Rutas básicas. `app.routes.ts` (continuación)
-  - Array de opciones de menu
-- Rutas Lazy. Default import en las páginas
-- Test las paginas (componentes) con rutas. RouterTestingHarness
 
 - 🧿Info. Componente para probar servicios...
 - Introducción a los servicios en Angular.
@@ -318,20 +320,24 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 - Servicio Logger. 
   - environments de Angular
-  - Uso de tokens de inyección  -->
-
-### Día 4 (J-8). Pipes y directivas. Formularios TD, DD, SD
+  - Uso de tokens de inyección  
 
 <!-- - Servicio Logger (final). 
   - Test del servicio Logger. Casos de uso 
   - 🧿Logger-Demo. Usos del servicio Logger
+-->
 
 - Pipes
   - DatePipe. Location "es". 
-  - Usar por defecto: inyección de dependencias
+
+
+### Día 4 (J-8). Pipes y directivas. Formularios TD, DD, SD
+
+<!-- - Pipes
+  - Location "es".  Usar por defecto: inyección de dependencias
   - Pipes propios. Ejemplo: Pipe de `truncate`
 
-- Directivas. Estructurales y de atributo   -->
+- Directivas. Estructurales y de atributo  -->
 
 <!-- Solo comentado 
 - Directivas propias
