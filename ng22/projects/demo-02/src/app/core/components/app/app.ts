@@ -5,10 +5,6 @@ import { Footer } from '../footer/footer';
 import { LogoCoders } from '../logo-coders/logo-coders';
 import { Card } from '../../design/card/card';
 import { Menu } from '../../design/menu/menu';
-import HomePage from '../../../features/home/home-page';
-import AboutPage from '../../../features/about/about-page';
-import CoursesPage from '../../../features/courses/courses-page';
-import DashboardPage from '../../../features/dashboard/dashboard-page';
 import { MENU_OPTIONS } from '../../../app.routes';
 
 @Component({
@@ -19,10 +15,6 @@ import { MENU_OPTIONS } from '../../../app.routes';
     Footer,
     Menu,
     Card,
-    HomePage,
-    DashboardPage,
-    CoursesPage,
-    AboutPage,
   ],
   selector: 'ind-root',
   styles: `
@@ -53,21 +45,10 @@ import { MENU_OPTIONS } from '../../../app.routes';
     </ind-header>
 
     <main class="container">
-      <router-outlet />
-      <ind-card id="home">
-        <ind-home-page />
-      </ind-card>
-
-      <ind-card id="dashboard">
-        <ind-dashboard-page />
-      </ind-card>
-
-      <ind-card id="courses">
-        <ind-courses-page />
-      </ind-card>
-
-      <ind-card id="about">
-        <ind-about-page />
+      <ind-card>
+        <router-outlet />
+        <!-- Aquí se mostrará el contenido 
+         de la página seleccionada en el menú. -->
       </ind-card>
     </main>
 
