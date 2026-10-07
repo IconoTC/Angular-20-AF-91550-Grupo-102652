@@ -185,7 +185,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - Coverage. Instalación v-8 : `npm i -D @vitest/coverage-v8`
     - Procesos asíncronos. Timers (comentado) 
 
-### Día 2 (M-6): Componentes del Layout. 
+### Día 2 (M-6): Componentes del Layout. Paginas
 
 - Componente 🧿CourseItemPro
   - Eventos
@@ -239,8 +239,8 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 - Nuevo proyecto (app): demo-02.  `ng g app demo-02 --style css --ssr false -p ind -t -s`  
   - Eliminamos componentes innecesarios
-    - SearchRe
-    - CourseItemSignals -
+    - SearchRef
+    - CourseItemSignals 
 
 
 - Scaffolding. Features
@@ -252,9 +252,9 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - 🧿Componentes incluidos en la demo de Angular
 -->
 
-### Día 3 (X-7). Paginas. Comunicaciones entre Componentes. Rutas, Servicios 
+### Día 3 (X-7). Comunicaciones entre Componentes. Rutas, Servicios 
 
-<!-- - Comunicación entre componentes (1)
+- Comunicación entre componentes (1)
   - Input. Decoradores @Input. función input(). Drilling
 
 - Dashboard.
@@ -266,17 +266,21 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 - Comunicación entre componentes (2) 
   - 🧿CounterList. Agrupando contadores. Estado en el componente padre
+
+[descanso]: 11:20 - 11:50
+
+- Comunicación entre componentes (3) 
   - Input en los contadores. Revision de los totales
     - input() y linkedSignal
     - sincronización de diversas "fuentes" de cambio
   - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
-    - Contadores. Eventos con valor  -->
-
-[descanso]: 11:30 - 12:00
-
-  <!-- - Respuesta a los eventos. Estado en el componente padre (contenedor/controlador).
+    - Contadores. Eventos con valor  
+   - Respuesta a los eventos. Estado en el componente padre (contenedor/controlador).
   - Computed signals 
-  - Test de inputs y outputs.  -->
+
+<!--
+  - Test de inputs y outputs.  
+-->
 
 <!-- SOLO COMENTADO 
 - model()
