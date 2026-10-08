@@ -356,13 +356,13 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 [descanso] - 11:20 - 11:50
 
 
-  <!-- - Rutas anidadas. 
+  - Rutas anidadas. 
     - Login y Register
     - Fichero de rutas propio de Auth. `auth.routes.ts`
   - Rutas con parámetros
     - LoginPage. Parámetros y formularios posibles
       (td, md-rx, signals)
-    - @if / @switch -->
+    - @if / @switch
 
 <!-- COMENTADO
  
@@ -371,14 +371,17 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
     - respuesta a la navegación. router.events.subscribe()
 -->
 
-<!-- - 🧿Componente LoginFormTd: Forms Template Driven (TD)
+- 🧿Componente LoginFormTd: Forms Template Driven (TD)
     - NgForm implícito, NgModel. Referencias locales
     - Paso de ngForm al onSubmit: form.value; form.reset()
-    - Validaciones  -->
+    - Validaciones nativas de HTML. Mensajes de validación
 
 [comida] 14:00 - 15:00
 
-<!-- - 🧿Componente LoginFormMdRx: Formularios reactivos (DD). LoginForm
+- 🧿Componente LoginFormTd: Forms Template Driven (TD)
+  - Submit y navegación a otra página. router.navigate()
+
+- 🧿Componente LoginFormMdRx: Formularios reactivos (MD). LoginForm
   - FormGroup, FormControl, FormBuilder
   - Binding desde el template [formGroup] formControlName y (ngSubmit)
   - Validaciones síncronas (y asíncronas).
@@ -388,14 +391,14 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Model (signal), FieldTree, FieldState 
   - Binding desde el template  [formField] y (submit)
   - Schema de validación
-  - Directiva FormRoot y submit -->
+  - Directiva FormRoot y submit
 
 <!--
 - RegisterForm. Otros controles HTML (comentado)
 -->
 
-<!-- - Custom controls
-  -  🧿Componente Input. [FormValueControl]  -->
+- Custom controls
+  -  🧿Componente Input. [FormValueControl]  
 
 <!-- NO INCLUIDO -->
 <!-- - Testing de formularios reactivos. -->
@@ -408,7 +411,11 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 -->
 
 ### Día 5 (V-9).  Arquitectura. Servicios repo (HTTP) y state 
- 
+
+- Custom controls
+  - Use 🧿Componente Input in signal form
+
+
 <!-- - Arquitectura de componentes
   - Componentes de contenedores vs de presentación.
   - Componentes inteligentes vs tontos.
