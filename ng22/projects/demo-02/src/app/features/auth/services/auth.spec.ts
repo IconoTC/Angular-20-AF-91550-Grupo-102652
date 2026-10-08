@@ -17,7 +17,7 @@ describe('Auth', () => {
     const request = { email: 'user@example.com', password: 'password', rememberMe: false };
     const response = await service.loginPromise(request, { delayTime: 1 });
     expect(response).toEqual({
-      error: 'fgfgffg',
+      error: '',
       token: expect.any(String),
       info: {
         id: expect.any(Number),
