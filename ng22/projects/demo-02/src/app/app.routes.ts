@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MenuOption } from './core/types/menu-option';
 import { TimeService } from './core/services/time.service';
+import { authRoutes } from './features/auth/router/auth.routes';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,11 @@ export const routes: Routes = [
     data: {
       label: 'Cursos',
     },
+  },
+  {
+    path: 'auth',
+    //component: AuthPage,
+    children: authRoutes
   },
   {
     path: 'about',

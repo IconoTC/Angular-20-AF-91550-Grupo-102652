@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Header } from './header';
-
+import { provideRouter } from '@angular/router';
 
 const TITLE = 'Curso';
 const SUBTITLE = 'Subtítulo';
@@ -12,6 +12,7 @@ describe('Header', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Header],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Header);
@@ -26,13 +27,11 @@ describe('Header', () => {
     expect(component).toBeTruthy();
   });
 
-  
   // Test de implementación
   // Test de caja blanca
   it('should have as title "Demo 01"', () => {
     expect(component['title']()).toContain(TITLE);
   });
-
 
   // Test de comportamiento
   // Test de caja negra

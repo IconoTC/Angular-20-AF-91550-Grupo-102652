@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { User } from './user';
-import { provideRouter } from '@angular/router';
+import { LoginFormTdf } from './login-form-tdf';
 
-describe('User', () => {
-  let component: User;
-  let fixture: ComponentFixture<User>;
+describe('LoginFormTdf', () => {
+  let component: LoginFormTdf;
+  let fixture: ComponentFixture<LoginFormTdf>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [User],
-      providers: [provideRouter([])],
+      imports: [LoginFormTdf],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(User);
+    fixture = TestBed.createComponent(LoginFormTdf);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

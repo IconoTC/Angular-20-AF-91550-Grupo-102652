@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { User } from './user';
-import { provideRouter } from '@angular/router';
+import { LoginFormMdfRx } from './login-form-mdf-rx';
 
-describe('User', () => {
-  let component: User;
-  let fixture: ComponentFixture<User>;
+describe('LoginFormMdfRx', () => {
+  let component: LoginFormMdfRx;
+  let fixture: ComponentFixture<LoginFormMdfRx>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [User],
-      providers: [provideRouter([])],
+      imports: [LoginFormMdfRx],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(User);
+    fixture = TestBed.createComponent(LoginFormMdfRx);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

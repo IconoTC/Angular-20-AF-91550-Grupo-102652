@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { User } from './user';
-import { provideRouter } from '@angular/router';
+import { LoginFormSignals } from './login-form-signals';
 
-describe('User', () => {
-  let component: User;
-  let fixture: ComponentFixture<User>;
+describe('LoginFormSignals', () => {
+  let component: LoginFormSignals;
+  let fixture: ComponentFixture<LoginFormSignals>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [User],
-      providers: [provideRouter([])],
+      imports: [LoginFormSignals],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(User);
+    fixture = TestBed.createComponent(LoginFormSignals);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
