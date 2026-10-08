@@ -9,6 +9,11 @@ import { Timestamp } from '../../../../core/design/timestamp/timestamp';
   imports: [CounterItem, Card, Timestamp],
   selector: 'ind-counter-list',
   styles: `
+  section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
       .negative {
       color: red;
     }`,
@@ -16,6 +21,7 @@ import { Timestamp } from '../../../../core/design/timestamp/timestamp';
     <p>Valor total: <output [class.negative]="totalValue() < 0">{{ totalValue() }}</output></p>
     <p>Total de clicks: <output>{{ totalClicks() }}</output></p>
 
+    <section>
     @for (counter of counters(); track counter.id) {
       <ind-card>
         <ind-counter-item
@@ -23,6 +29,7 @@ import { Timestamp } from '../../../../core/design/timestamp/timestamp';
         (eventChange)="handleChange($event)" />
       </ind-card>
     }
+  </section>
 
     <ind-timestamp />
 
