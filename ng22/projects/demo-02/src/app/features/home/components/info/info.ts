@@ -2,10 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { Timestamp } from '../../../../core/design/timestamp/timestamp';
 import { TimeService } from '../../../../core/services/time.service';
 import { ERROR_LEVEL, Logger } from '../../../../core/services/logger';
-import { DatePipe } from '@angular/common';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 
 @Component({
-  imports: [Timestamp, DatePipe],
+  imports: [Timestamp, DatePipe, TitleCasePipe],
   providers: [
     TimeService,
     // {
@@ -69,7 +69,7 @@ import { DatePipe } from '@angular/common';
     <footer>
       <ul>
         <li>Autor: {{ author() }}</li>
-        <li>Fecha: {{ currentDate() | date: 'fullDate': '' : 'es' }}</li>
+        <li>Fecha: {{ currentDate() | date: 'fullDate' | titlecase }}</li>
         <li>Logger level: {{ logger.level }}</li>
       </ul>
     </footer>
@@ -87,5 +87,8 @@ export class Info {
   constructor() {
     this.logger.log('[LOG] Info component initialized');
     this.logger.info('[INFO] Info component initialized');
+
+    const x = new DatePipe('es').transform(this.currentDate(), 'fullDate');
+    console.log(x);
   }
 }
