@@ -88,7 +88,7 @@ export class Info {
     this.logger.log('[LOG] Info component initialized');
     this.logger.info('[INFO] Info component initialized');
 
-    const x = new DatePipe('es').transform(this.currentDate(), 'fullDate');
+    const x = new DatePipe('en-US').transform(this.currentDate(), 'fullDate');
     console.log(x);
   }
 }
