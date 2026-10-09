@@ -13,11 +13,12 @@ import {
 import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Auth } from '../../services/auth';
+import { Input, InputEmail } from '../../../../core/design/input/input';
 
 type LoginModel = LoginRequest;
 
 @Component({
-  imports: [FormField, JsonPipe, FormRoot],
+  imports: [FormField, JsonPipe, FormRoot, Input, InputEmail],
   selector: 'ind-login-form-signals',
   styles: `
     form {
@@ -81,7 +82,7 @@ type LoginModel = LoginRequest;
   `,
   template: `
     <form [formRoot]="loginFieldTree">
-      <label for="email" class="form-control">
+      <!-- <label for="email" class="form-control">
         <span>Email:</span>
         <input type="email" id="email" [formField]="loginFieldTree.email" />
       </label>
@@ -89,9 +90,16 @@ type LoginModel = LoginRequest;
       @let email = loginFieldTree.email();
       @if (email.invalid() && email.touched()) {
         <span class="error">{{ email.errors()[0]?.message }}</span>
-      }
+      } -->
 
-      <label for="password" class="form-control">
+      <!-- <ind-input [label]="'Email'" [type]="'email'" [formField]="loginFieldTree.email"></ind-input> -->
+
+      <ind-input-email
+        [label]="'Email'"
+        [formField]="loginFieldTree.email"
+      ></ind-input-email>
+
+      <!-- <label for="password" class="form-control">
         <span>Password:</span>
         <input type="password" id="password" [formField]="loginFieldTree.password" />
       </label>
@@ -99,7 +107,13 @@ type LoginModel = LoginRequest;
       @let password = loginFieldTree.password();
       @if (password.invalid() && password.touched()) {
         <span class="error">{{ password.errors()[0]?.message }}</span>
-      }
+      } -->
+
+      <ind-input
+        [label]="'Password'"
+        [type]="'password'"
+        [formField]="loginFieldTree.password"
+      ></ind-input>
 
       <label for="remember" class="form-control checkbox">
         <input type="checkbox" id="remember" [formField]="loginFieldTree.rememberMe" />
