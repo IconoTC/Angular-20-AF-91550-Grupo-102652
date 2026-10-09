@@ -348,13 +348,11 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   
 - RxJS (Observables)
   - Introducción. Observables, subscription, operadores.
-
  
   - Servicio Auth. Login simulado con Observables y con Promesas.
   - Test del servicio Auth. Casos de uso
 
 [descanso] - 11:20 - 11:50
-
 
   - Rutas anidadas. 
     - Login y Register
@@ -414,6 +412,7 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
 
 - Custom controls
   - Use 🧿Componente Input in signal form
+  - Herencia entre componentes
 
 
 <!-- - Arquitectura de componentes
