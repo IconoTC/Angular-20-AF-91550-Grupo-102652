@@ -13,5 +13,6 @@ export const appConfig: ApplicationConfig = {
     { provide: ERROR_LEVEL, useValue: environment.logLevel },
     { provide: LOCALE_ID, useValue: 'es' },
     provideBrowserGlobalErrorListeners(), 
-    provideRouter(routes, withComponentInputBinding())],
+    provideRouter(routes, withComponentInputBinding()),
+  ],
 };

@@ -2,9 +2,9 @@ import { Component, DestroyRef, ElementRef, inject, signal, viewChild } from '@a
 import { CourseForm } from '../course-form/course-form';
 import { CourseItem } from '../course-item/course-item';
 import { Course } from '../../types/course';
-import { getCourseRx } from '../../data/courses';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { JsonPipe } from '@angular/common';
+import { ApiRepoCourses } from '../../services/api-repo-courses';
 
 @Component({
   imports: [CourseForm, CourseItem, JsonPipe],
@@ -42,7 +42,10 @@ import { JsonPipe } from '@angular/common';
 })
 export class CourseList {
   readonly #destroyRef = inject(DestroyRef);
-  readonly detailsAdd = viewChild<ElementRef<HTMLDetailsElement>>('detailsAdd')
+
+  readonly #repo = inject(ApiRepoCourses);
+
+  readonly detailsAdd = viewChild<ElementRef<HTMLDetailsElement>>('detailsAdd');
 
   private readonly courses = signal<Course[]>([]);
   private readonly isLoading = signal(false);
@@ -57,7 +60,8 @@ export class CourseList {
     this.error.set(null);
 
     // Simulate an API call to fetch courses
-    getCourseRx()
+    this.#repo
+      .getAll()
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
         next: (courses) => {
@@ -65,30 +69,64 @@ export class CourseList {
           this.isLoading.set(false);
         },
         error: (err) => {
+          console.log(err);
           this.error.set(err);
           this.isLoading.set(false);
         },
       });
   }
 
-  createCourse(course: Omit<Course, 'id'>): void {
-    const newCourse: Course = {
-      ...course,
-      id: Math.floor(Math.random() * 1000), // Generate a random ID for the new course
-    };
-    this.courses.update((courses) => [...courses, newCourse]);
-
-    (this.detailsAdd() as ElementRef<HTMLDetailsElement>).nativeElement.open = false; // Close the details element after adding a course
+  createCourse(courseData: Omit<Course, 'id'>): void {
+    // Asincrona
+    this.#repo
+      .add(courseData)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        // Sincrona
+        next: (newCourse) => {
+          this.courses.update((courses) => [...courses, newCourse]);
+          (this.detailsAdd() as ElementRef<HTMLDetailsElement>).nativeElement.open = false; // Close the details element after adding a course
+        },
+        error: (err) => {
+          console.error('Error al crear el curso:', err);
+        },
+      });
   }
 
   updateCourse(course: Course): void {
-    this.courses.update((courses) => {
-      return courses.map((c) => (c.id === course.id ? course : c));
-    });
+    const { id, ...rest } = course;
+    // Asincrona
+    this.#repo
+      .update(id, rest)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        // Sincrona
+        next: (updatedCourse) => {
+          this.courses.update((courses) => {
+            return courses.map((c) => (c.id === course.id ? updatedCourse : c));
+          });
+        },
+        error: (err) => {
+          console.error('Error al actualizar el curso:', err);
+        },
+      });
   }
   deleteCourse(id: Course['id']): void {
-    this.courses.update((courses) => {
-      return courses.filter((c) => c.id !== id);
-    });
+    // Asincrona
+
+    this.#repo
+      .delete(id)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        // Sincrona
+        next: () => {
+          this.courses.update((courses) => {
+            return courses.filter((c) => c.id !== id);
+          });
+        },
+        error: (err) => {
+          console.error('Error al eliminar el curso:', err);
+        },
+      });
   }
 }
