@@ -1,0 +1,65 @@
+import { Routes } from '@angular/router';
+import { MenuOption } from './core/types/menu-option';
+import { TimeService } from './core/services/time.service';
+import { authRoutes } from './features/auth/router/auth.routes';
+
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    // component: HomePage,
+    loadComponent: () => import('./features/home/home-page'),
+    title: 'Inicio | Demo 03',
+    data: {
+      label: 'Inicio',
+    },
+  },
+  {
+    path: 'dashboard',
+    //component: DashboardPage,
+    loadComponent: () => import('./features/dashboard/dashboard-page'),
+    title: 'Dashboard | Demo 03',
+    data: {
+      label: 'Dashboard',
+    },
+    providers: [TimeService],
+  },
+  {
+    path: 'courses',
+    //component: CoursesPage,
+    loadComponent: () => import('./features/courses/courses-page'),
+    title: 'Cursos | Demo 03',
+    data: {
+      label: 'Cursos',
+    },
+  },
+  {
+    path: 'auth',
+    //component: AuthPage,
+    children: authRoutes,
+  },
+  {
+    path: 'about',
+    //component: AboutPage,
+    loadComponent: () => import('./features/about/about-page'),
+    title: 'Acerca de | Demo 03',
+    data: {
+      label: 'Acerca de',
+    },
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
+];
+
+export const MENU_OPTIONS: MenuOption[] = routes
+  .filter((route) => route.data && route.data['label'])
+  .map((route) => ({
+    label: route.data!['label'] as string,
+    path: route.path as string,
+  }));
