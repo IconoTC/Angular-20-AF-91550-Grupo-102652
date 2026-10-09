@@ -415,12 +415,13 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Herencia entre componentes
 
 
-<!-- - Arquitectura de componentes
+- Arquitectura de componentes
   - Componentes de contenedores vs de presentación.
   - Componentes inteligentes vs tontos.
 
 - Ejemplo: Courses List
   - Entidad Courses. Modelo y mock de datos asíncrono.
+
   - Componente Courses-List. Lógica del estado
   - Componente Courses-Item. Input y Output (Eventos)
   - Componente Courses-Form. Output (Eventos) 
@@ -431,71 +432,58 @@ Curso de Angular 22, versión publicada el 3 de Junio de 2026.
   - Los mismos repositorios usando RxJS (Observables). 
   - Uso del repo en el componente
 
-- API server fake basado en JSONServer. -->
+- API server fake basado en JSONServer.
+  - Prueba con Postman
 
 [descanso] 11:30 - 12:00
 
-<!--  No incluido
-- Testing de servicios.
-  - Tests del servicio
-    - Test de métodos CRUD.
-    - Test de promesas (async, whenStable, expectAsync).
-  - Testing de componentes con servicios (mocks y spies). -->
+- Uso de environments
 
-<!-- - API server fake basado en JSONServer.
-  - Prueba con Postman -->
-
-<!-- - Uso de environments.  -->
-
-<!-- 
-- Nuevo proyecto (demo-02).
---> 
-
-
-<!-- - Introducción a los servicios HTTP en Angular.
-- Servicio HttpClient. Observables (RxJs).
+ Servicio HttpClient. Observables (RxJs).
 
   - Antes de Angular 21: Configuración del servicio HTTP: provider
-  - Feature Notes. Creación de un ApiRepositoryService. 
-  - Uso desde el componente (NoteList).  
- 
-  - Repositorio y lógica de negocio (estado). Estrategias 
+  - Creación de un ApiRepositoryService.
   - Métodos CRUD. getAll() y getById()
   - Métodos CRUD. add(), update(), delete()
-  - Uso en los componentes. Inyección de dependencias. -->
+
+  - Uso desde el componente (Courses-List). 
+    - Repositorio y lógica de negocio (estado). Estrategias 
+  
 
 <!-- NO INCLUIDO
   - Tests de servicios HTTP real (sin mock) 
   - Tests de servicios HTTP con HttpTestingController
   - Test de componentes con servicios HTTP (mocks y spies).
 -->
- 
-<!-- - Servicios stateful: patrón Flux. Feature Courses
 
-  - Estado con Signals: signal (WriteableSignal) y readOnly/computed (Signal)
-  
-  - Servicio Store con CoursesState
-    - Estado privado con WriteableSignal
-    - Estado público con Signal (asReadOnly) 
-    - Métodos para modificar el estado (add, toggle, remove)
-    - Uso del estado desde los componentes ToDo... -->
+- Nuevo proyecto (app): demo-03.  
+  `ng g app demo-03 --style css --ssr false -p ind -t -s` 
+
+- Servicios stateful: patrón Flux
 
 <!-- 
-  - Uso desde cualquier parte de la aplicación (Header)  
--->
-
-<!-- Mencionado
   - Estado con RxJS: Subjects
     - Estado privado con BehaviorSubject
     - Estado público con Observable (asObservable)
     - Métodos para modificar el estado (add, toggle, remove)
-    - Gestión de errores
 -->
+  
+  - Estado con Signals: signal (WriteableSignal) y readOnly/computed (Signal)
+  
+  - Servicio Store con CoursesState
+    - Estado privado con WriteableSignal
+    - Estado público con Signal (asReadOnly)
+    - Métodos para modificar el estado (add, toggle, remove)
+
+- Uso del estado desde los componentes Courses...
+- Gestión de errores
+- Uso desde cualquier parte de la aplicación (Header) 
+
 
 <!-- NO INCLUIDO
 - Más novedades (Signals)
   - resources: httpClientResource (Angular 22)
 - Interceptors y Guards
-  - Testing  
+- Testing  
 -->
 
