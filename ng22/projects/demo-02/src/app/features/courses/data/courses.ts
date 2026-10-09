@@ -1,3 +1,4 @@
+import { Observable, of, delay } from 'rxjs';
 import { Course } from '../types/course';
 
 export const COURSES: Course[] = [
@@ -8,6 +9,7 @@ export const COURSES: Course[] = [
     duration: '4 hours',
     level: 'beginner',
     image: 'assets/angular-fundamentals.webp',
+    isOfficial: true,
     courseStats: {
       difficulty: 3,
       actualization: 5,
@@ -21,6 +23,7 @@ export const COURSES: Course[] = [
     duration: '6 hours',
     level: 'advanced',
     image: 'assets/angular-advanced.webp',
+    isOfficial: false,
     courseStats: {
       difficulty: 5,
       actualization: 5,
@@ -34,10 +37,23 @@ export const COURSES: Course[] = [
     duration: '5 hours',
     level: 'intermediate',
     image: 'assets/angular-performance.webp',
+    isOfficial: true,
     courseStats: {
       difficulty: 4,
       actualization: 5,
       utility: 5,
     },
-  }
+  },
 ];
+
+export const getCourses = (): Promise<Course[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(COURSES);
+    }, 1000);
+  });
+};
+
+export const getCourseRx = (): Observable<Course[]> => {
+  return of(COURSES).pipe(delay(1000));
+}

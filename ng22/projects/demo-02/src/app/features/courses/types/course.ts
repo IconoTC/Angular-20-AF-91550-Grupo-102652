@@ -4,6 +4,7 @@ export interface Course {
   description: string;
   duration: string;
   level: 'beginner' | 'intermediate' | 'advanced';
+  isOfficial: boolean;
   image: string;
   courseStats: CourseStats;
 }
